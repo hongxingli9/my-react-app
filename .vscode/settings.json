@@ -1,18 +1,7 @@
 {
-  // 禁止编辑器自带的格式化，交给 ESLint 统一处理
-  "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  // 设置默认格式化程序为 Prettier
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "editor.formatOnSave": false,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }

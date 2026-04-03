@@ -28,6 +28,7 @@ export default defineConfig([
         'warn',
         { allowConstantExport: true },
       ],
+       "@typescript-eslint/no-explicit-any": "off",
       // 开启 prettier 自动修复规则
       'prettier/prettier': 'error',
     },

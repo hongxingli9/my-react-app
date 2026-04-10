@@ -9,7 +9,6 @@ const getRoutes = (): RouteObject[] => {
   }
   return [];
 };
-console.log(getRoutes());
 export const dashboardRoutes: RouteObject[] = [
   {
     element: <DashboradLayout />,

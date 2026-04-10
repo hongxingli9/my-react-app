@@ -1,5 +1,8 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
+//https://github.com/vanilla-extract-css/vanilla-extract/issues/1302
+import "./theme/theme.css";
+import "@/locales/i18n";
 import App from "./App.tsx";
 import { registerLocalIcons } from "@/components/icon";
 import { RouterProvider } from "react-router/dom";
@@ -30,4 +33,3 @@ const router = createBrowserRouter(
 );
 
 createRoot(document.getElementById("root")!).render(<RouterProvider router={router} />);
-console.log(routesSection);

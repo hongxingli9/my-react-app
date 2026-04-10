@@ -1,7 +1,6 @@
 import { lazy } from "react";
 
 const Pages = import.meta.glob("/src/pages/**/*.tsx");
-console.log(Pages);
 const lazyComponentCache = new Map<string, React.LazyExoticComponent<any>>();
 
 // export const loadComponentFromPath = ()

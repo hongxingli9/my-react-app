@@ -52,6 +52,10 @@
   --color-primary: var(--colors-palette-primary-default);
   --color-text-disabled: var(--colors-text-disabled);
   --color-text-primary: var(--colors-text-primary);
+  --color-text-secondary: var(--colors-text-secondary);
+  --color-action-disabled: var(--colors-action-disabled);
+  --color-action-hover: var(--colors-action-hover);
+  --color-action-focus: var(--colors-action-focus);
   --animate-collapsible-down: collapsible-down 0.2s ease-in-out;
   --animate-collapsible-up: collapsible-up 0.2s ease-in-out;
   @keyframes collapsible-down {
@@ -92,8 +96,8 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary: var(--colors-palette-gray-200);
+  --secondary-foreground: var(--colors-palette-gray-600);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
@@ -127,8 +131,8 @@
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
+  --secondary: var(--colors-background-neutral);
+  --secondary-foreground: var(--colors-palette-gray-500);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);

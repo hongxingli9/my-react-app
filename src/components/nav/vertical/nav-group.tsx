@@ -7,7 +7,7 @@ import { Icon } from "@/components/icon";
 import useLocale from "@/locales/use-locale";
 
 export function NavGroup({ name, items }: NavGroupProps) {
-  const [open, toggleOpen] = useToggle(false);
+  const [open, toggleOpen] = useToggle(true);
   return (
     <Collapsible open={open}>
       <CollapsibleTrigger asChild>
@@ -54,8 +54,8 @@ function Group({
 
         <span
           className={cn(
-            "text-xs font-medium transiton-all duration-300 ease-in-out text-(--colors-text-disabled)",
-            "hover:text-(--colors-text-primary)",
+            "text-xs font-medium transiton-all duration-300 ease-in-out text-text-disabled",
+            "hover:text-text-primary",
           )}
         >
           {t(name)}

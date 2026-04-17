@@ -4,50 +4,29 @@ import { cn } from "@/utils";
 import { TooltipProvider, TooltipTrigger, Tooltip, TooltipContent } from "@/components/ui/tooltip";
 import { NavItemRenderer } from "../components";
 import useLocale from "@/locales/use-locale";
+import { navItemClasses, navItemStyles } from "../style";
 
 export function NavItem(item: NavItemProps) {
-  const { title, icon, info, caption, open, active, disabled, hasChild } = item;
+  const { title, icon, info, caption, open, active, disabled, depth, hasChild } = item;
   const { t } = useLocale();
 
   const content = (
     <>
-      {/** icon */}
-      <span className={cn("inlne-flex shrink-0 w-5.5 h-5.5 justify-center items-center", "mr-3")}>
+      {/** Icon */}
+      <span style={navItemStyles.icon} className={cn("justify-center items-center", "mr-3")}>
         {icon && typeof icon === "string" ? <Icon icon={icon} /> : icon}
       </span>
 
-      {/** text */}
-      <span className={cn("inline-flex flex-col justify-center flex-auto min-h-6")}>
+      {/** Texts */}
+      <span style={navItemStyles.texts} className="min-h-[24px]">
         {/** title */}
-        <span
-          className="text-sm font-medium text-left leading-tight"
-          style={{
-            display: "-webkit-box",
-            WebkitLineClamp: 1,
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-          }}
-        >
-          {t(title)}
-        </span>
+        <span style={navItemStyles.title}>{t(title)}</span>
         {/** caption */}
         {caption && (
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <span
-                  className="text-xs text-text-secondary text-left leading-tight"
-                  style={{
-                    display: "-webkit-box",
-                    WebkitLineClamp: 1,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                  }}
-                >
-                  {t(caption)}
-                </span>
+                <span style={navItemStyles.caption}>{t(caption)}</span>
               </TooltipTrigger>
               <TooltipContent side="top" align="start">
                 {t(caption)}
@@ -58,14 +37,14 @@ export function NavItem(item: NavItemProps) {
       </span>
 
       {/** info */}
-      {info && <span className="mx-1.5 inline-flex shrink-0 items-center">{info}</span>}
+      {info && <span style={navItemStyles.info}>{info}</span>}
 
       {/* Arrow */}
       {hasChild && (
         <Icon
           icon="eva:arrow-ios-forward-fill"
-          className="h-4 w-4 inline-flex shrink-0 transition-all duration-300 ease-in-out"
           style={{
+            ...navItemStyles.arrow,
             transform: open ? "rotate(90deg)" : "rotate(0deg)",
           }}
         />
@@ -74,10 +53,12 @@ export function NavItem(item: NavItemProps) {
   );
 
   const itemClassName = cn(
-    "inline-flex w-full items-center rounded-md px-2 py-1.5 text-sm transition-all duration-300 ease-in-out text-(--colors-text-secondary)! cursor-pointer",
-    "hover:bg-(--colors-action-hover)!",
-    active && "bg-primary/hover! text-primary!",
-    disabled && "cursor-not-allowed hover:g-transparent text-action-disabled!",
+    navItemClasses.base,
+    navItemClasses.hover,
+    "min-h-[44px]",
+    active && depth === 1 && navItemClasses.active,
+    active && depth !== 1 && "bg-action-hover!",
+    disabled && navItemClasses.disabled,
   );
 
   return (

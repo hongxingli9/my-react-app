@@ -2,7 +2,15 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
+  "tailwindCSS.classFunctions": ["cn", "clsx", "cva", "twMerge"],
+  "tailwindCSS.emmetCompletions": true,
   "editor.formatOnSave": false,
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-  "i18n-ally.localesPaths": ["src/locales", "src/locales/lang"]
+  "i18n-ally.localesPaths": ["src/locales/lang"],
+  "i18n-ally.enabledParsers": ["json"],
+  "i18n-ally.pathMatcher": "{locale}/{namespaces}.{ext}",
+  "i18n-ally.keystyle": "flat",
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.displayLanguage": "zh_CN"
 }

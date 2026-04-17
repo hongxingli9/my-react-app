@@ -51,7 +51,7 @@ export const enum MultiTabOperation {
   CLOSERIGHT = "closeRight",
 }
 
-export const enum PermissionType {
+export enum PermissionType {
   GROUP = 0,
   CATALOGUE = 1,
   MENU = 2,

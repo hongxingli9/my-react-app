@@ -1,3 +1,55 @@
+import { Navigate } from "react-router";
+import PlaceholderImg from "@/assets/images/background/placeholder.svg";
+import { LoginStateProvider } from "./providers/login-provider";
+import LoginForm from "./login-form";
+import MobileForm from "./mobile-form";
+import Logo from "@/components/Logo";
+import { GLOBAL_CONFIG } from "@/global-config";
+import LocalePicker from "@/components/locale-picker";
+import SettingButton from "@/layouts/components/setting-button";
+import { useUserToken } from "@/store/userStore";
+import { TooltipProvider } from "@/components/ui/tooltip";
+
 export default function LoginPage() {
-  return <div>LoginPage</div>;
+  const token = useUserToken();
+
+  if (token.accessToken) {
+    return <Navigate to={GLOBAL_CONFIG.defaultRoute} replace />;
+  }
+
+  return (
+    <div className="relative grid min-h-svh lg:grid-cols-2 bg-background">
+      <div className="flex flex-col gap-4 p-6 md:p-10">
+        <div className="flex justify-center gap-2 md:justify-start">
+          <div className="flex items-center gap-2 font-medium cursor-pointer">
+            <Logo size={28} />
+            <span>{GLOBAL_CONFIG.appName}</span>
+          </div>
+        </div>
+        <div className="flex flex-1 items-center justify-center">
+          <div className="w-full max-w-xs">
+            <LoginStateProvider>
+              <LoginForm />
+              <MobileForm />
+            </LoginStateProvider>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative hidden bg-background-paper lg:block">
+        <img
+          src={PlaceholderImg}
+          alt="placeholder img"
+          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.5] dark:grayscale"
+        />
+      </div>
+
+      <div className="absolute right-2 top-0 flex flex-row">
+        <LocalePicker />
+        <TooltipProvider>
+          <SettingButton />
+        </TooltipProvider>
+      </div>
+    </div>
+  );
 }

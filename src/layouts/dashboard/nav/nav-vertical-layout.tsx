@@ -28,7 +28,15 @@ export function NavVerticalLayout({ data, className }: Props) {
       <div className={cn("relative flex items-center py-4 px-2 h-(--layout-header-height)")}>
         <div className="flex items-center justify-center">
           <Logo />
-          <span className="text-xl font-bold transition-all duration-300 ease-in-out">
+          <span
+            className="text-xl font-bold transition-all duration-300 ease-in-out"
+            style={{
+              opacity: 1,
+              maxWidth: "auto",
+              whiteSpace: "nowrap",
+              marginLeft: "8px",
+            }}
+          >
             {GLOBAL_CONFIG.appName}
           </span>
         </div>

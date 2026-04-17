@@ -6,10 +6,29 @@ import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vanillaExtractPlugin(), react(), /**tsconfigPaths(),*/ tailwindcss()],
+  plugins: [
+    vanillaExtractPlugin({
+      identifiers: ({ debugId }) => `${debugId}`,
+    }),
+    react(),
+    /**tsconfigPaths(),*/ tailwindcss(),
+  ],
   resolve: {
     alias: {
       "@": "/src",
+    },
+  },
+  server: {
+    open: true,
+    host: true,
+    port: 3002,
+    proxy: {
+      "/api": {
+        target: "http://localhost:3003",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+        secure: false,
+      },
     },
   },
 });

@@ -54,8 +54,8 @@ function Group({
 
         <span
           className={cn(
-            "text-xs font-medium transiton-all duration-300 ease-in-out text-gray-500",
-            "hover:text-primary",
+            "text-xs font-medium transiton-all duration-300 ease-in-out text-(--colors-text-disabled)",
+            "hover:text-(--colors-text-primary)",
           )}
         >
           {t(name)}

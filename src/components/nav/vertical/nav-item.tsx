@@ -74,8 +74,8 @@ export function NavItem(item: NavItemProps) {
   );
 
   const itemClassName = cn(
-    "inline-flex w-full items-center rounded-md px-2 py-1.5 text-sm transition-all duration-300 ease-in-out text-text-primary! cursor-pointer",
-    "hover:bg-action-hover!",
+    "inline-flex w-full items-center rounded-md px-2 py-1.5 text-sm transition-all duration-300 ease-in-out text-(--colors-text-secondary)! cursor-pointer",
+    "hover:bg-(--colors-action-hover)!",
     active && "bg-primary/hover! text-primary!",
     disabled && "cursor-not-allowed hover:g-transparent text-action-disabled!",
   );

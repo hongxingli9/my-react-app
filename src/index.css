@@ -49,13 +49,46 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* --colors-palette-warning-light: #FFD666;
+  --colors-palette-warning-default: #FFAB00;
+  --colors-palette-warning-dark: #B76E00;
+  --colors-palette-warning-darker: #7A4100;
+  --colors-palette-error-lighter: #FFE9D5;
+  --colors-palette-error-light: #FFAC82;
+  --colors-palette-error-default: #FF5630;
+  --colors-palette-error-dark: #B71D18;
+  --colors-palette-error-darker: #7A0916;
+  --colors-palette-info-lighter: #CAFDF5;
+  --colors-palette-info-light: #61F3F3;
+  --colors-palette-info-default: #00B8D9;
+  --colors-palette-info-dark: #006C9C;
+  --colors-palette-info-darker: #003768; */
+  /* --colors-common-white: #FFFFFF;
+  --colors-common-black: #09090B; */
+
   --color-primary: var(--colors-palette-primary-default);
+  --color-warning: var(--colors-palette-warning-default);
+  --color-warning-light: var(--colors-palette-warning-light);
+  --color-warning-dark: var(--colors-palette-warning-dark);
+  --color-success: var(--colors-palette-success-default);
+  --color-success-light: var(--colors-palette-success-light);
+  --color-success-dark: var(--colors-palette-success-dark);
+  --color-info: var(--colors-palette-info-default);
+  --color-info-light: var(--colors-palette-info-light);
+  --color-info-dark: var(--colors-palette-info-dark);
+  --color-error: var(--colors-palette-error-default);
+  --color-error-light: var(--colors-palette-error-light);
+  --color-error-dark: var(--colors-palette-error-dark);
   --color-text-disabled: var(--colors-text-disabled);
   --color-text-primary: var(--colors-text-primary);
   --color-text-secondary: var(--colors-text-secondary);
+  --color-common-white: var(--colors-common-white);
+  --color-common-black: var(--colors-common-black);
   --color-action-disabled: var(--colors-action-disabled);
   --color-action-hover: var(--colors-action-hover);
   --color-action-focus: var(--colors-action-focus);
+  --color-action-selected: var(--colors-action-selected);
   --animate-collapsible-down: collapsible-down 0.2s ease-in-out;
   --animate-collapsible-up: collapsible-up 0.2s ease-in-out;
   @keyframes collapsible-down {
@@ -102,7 +135,8 @@
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
+  /* --destructive: oklch(0.577 0.245 27.325); */
+  --destructive: var(--colors-palette-error-default);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);

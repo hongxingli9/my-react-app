@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import type { NavItemProps } from "../types";
 import { cn } from "@/utils";
-import { TooltipProvider, TooltipTrigger, Tooltip, TooltipContent } from "@/components/ui/tooltip";
+import { TooltipTrigger, Tooltip, TooltipContent } from "@/components/ui/tooltip";
 import { NavItemRenderer } from "../components";
 import useLocale from "@/locales/use-locale";
 import { navItemClasses, navItemStyles } from "../style";
@@ -23,16 +23,16 @@ export function NavItem(item: NavItemProps) {
         <span style={navItemStyles.title}>{t(title)}</span>
         {/** caption */}
         {caption && (
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <span style={navItemStyles.caption}>{t(caption)}</span>
-              </TooltipTrigger>
-              <TooltipContent side="top" align="start">
-                {t(caption)}
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          // <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <span style={navItemStyles.caption}>{t(caption)}</span>
+            </TooltipTrigger>
+            <TooltipContent side="top" align="start">
+              {t(caption)}
+            </TooltipContent>
+          </Tooltip>
+          // </TooltipProvider>
         )}
       </span>
 

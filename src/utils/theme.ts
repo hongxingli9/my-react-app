@@ -82,3 +82,43 @@ export const addColorChannels = <T extends Record<string, any>>(obj: T): AddChan
 
   return result as AddChannelToLeaf<T>;
 };
+
+/**
+ * remove px unit
+ * @param value example: "16px"
+ * @returns example: 16
+ */
+/**
+ * remove px unit and convert to number
+ * @param value example: "16px", "16.5px", "-16px", "16", 16
+ * @returns example: 16, 16.5, -16, 16, 16
+ * @throws Error if value is invalid
+ */
+export const removePx = (value: string | number): number => {
+  // 如果已经是数字，直接返回
+  if (typeof value === "number") return value;
+
+  // 如果是空字符串，抛出错误
+  if (!value) {
+    throw new Error("Invalid value: empty string");
+  }
+
+  // 移除所有空格
+  const trimmed = value.trim();
+
+  // 检查是否以 px 结尾（不区分大小写）
+  const hasPx = /px$/i.test(trimmed);
+
+  // 提取数字部分
+  const num = hasPx ? trimmed.slice(0, -2) : trimmed;
+
+  // 转换为数字
+  const result = Number.parseFloat(num);
+
+  // 验证结果是否为有效数字
+  if (Number.isNaN(result)) {
+    throw new Error(`Invalid value: ${value}`);
+  }
+
+  return result;
+};

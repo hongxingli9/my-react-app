@@ -1,4 +1,4 @@
-// import type { ThemeMode } from "@/types/enum";
+import type { ThemeMode } from "@/types/enum";
 
 export const themeTokens = {
   colors: {
@@ -189,6 +189,13 @@ export const themeTokens = {
     scrollbar: null,
   },
 };
+
+export type UILibraryAdapterProps = {
+  mode: ThemeMode;
+  children: React.ReactNode;
+};
+
+export type UILibraryAdapter = React.FC<UILibraryAdapterProps>;
 
 export type IsLeafObject<T> = T extends object
   ? T[keyof T] extends string | null

@@ -14,7 +14,7 @@ export const dashboardRoutes: RouteObject[] = [
   {
     element: (
       <LoginAuthGuard>
-        <DashboradLayout />,
+        <DashboradLayout />
       </LoginAuthGuard>
     ),
     children: [

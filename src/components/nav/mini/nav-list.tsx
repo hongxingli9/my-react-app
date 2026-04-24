@@ -1,0 +1,63 @@
+import type { NavListProps } from "../types";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { useLocation } from "react-router";
+import { NavRootItem } from "./nav-root-item";
+import { NavSubItem } from "./nav-sub-item";
+
+export function NavList({ data, depth = 0 }: NavListProps) {
+  const hasChild = data.children && data.children.length > 0;
+  const location = useLocation();
+  const isActive = location.pathname.includes(data.path);
+
+  if (data.hidden) {
+    return null;
+  }
+  const renderRootNavItem = () => (
+    <NavRootItem
+      key={data.title}
+      path={data.path}
+      title={data.title}
+      caption={data.caption}
+      info={data.info}
+      icon={data.icon}
+      auth={data.auth}
+      disabled={data.disabled}
+      active={isActive}
+      hasChild={hasChild}
+      depth={depth}
+    />
+  );
+
+  const renderSubNavItem = () => (
+    <NavSubItem
+      key={data.title}
+      path={data.path}
+      title={data.title}
+      caption={data.caption}
+      info={data.info}
+      icon={data.icon}
+      auth={data.auth}
+      disabled={data.disabled}
+      active={isActive}
+      hasChild={hasChild}
+      depth={depth}
+    />
+  );
+
+  const renderNavItem = () => (depth === 1 ? renderRootNavItem() : renderSubNavItem());
+
+  const renderRootItemWithHoverCard = () => (
+    <HoverCard openDelay={100}>
+      <HoverCardTrigger>{renderNavItem()}</HoverCardTrigger>
+      <HoverCardContent side="right" sideOffset={10} className="p-1">
+        {data.children?.map((child) => (
+          <NavList key={child.title} data={child} depth={depth + 1} />
+        ))}
+      </HoverCardContent>
+    </HoverCard>
+  );
+
+  return (
+    <li className="list-none">{hasChild ? renderRootItemWithHoverCard() : renderNavItem()}</li>
+  );
+}
